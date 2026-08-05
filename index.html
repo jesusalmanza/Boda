@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofía & Alejandro | Nuestra Boda</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        :root {
+            --barro-terracotta: #B85233;
+            --barro-dark: #8C3B22;
+            --talavera-blue: #1B365D;
+            --talavera-cobalt: #0D213F;
+            --gold-accent: #C5A059;
+            --gold-light: #E6CA85;
+            --cream-bg: #FAF6F0;
+            --ivory-card: #FFFDF9;
+            --sage-green: #4A6B5D;
+            --charcoal: #2C2C2C;
+            --shadow-soft: 0 10px 30px rgba(27, 54, 93, 0.08);
+            --shadow-card: 0 15px 35px rgba(184, 82, 51, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--cream-bg);
+            color: var(--charcoal);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: radial-gradient(var(--gold-accent) 0.5px, transparent 0.5px), radial-gradient(var(--gold-accent) 0.5px, var(--cream-bg) 0.5px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            background-opacity: 0.03;
+        }
+
+        h1, h2, h3, h4, .serif-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .script-font {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Talavera Top Border Pattern */
+        .talavera-banner {
+            height: 18px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--talavera-blue) 0px,
+                var(--talavera-blue) 20px,
+                var(--gold-accent) 20px,
+                var(--gold-accent) 25px,
+                var(--barro-terracotta) 25px,
+                var(--barro-terracotta) 45px,
+                var(--cream-bg) 45px,
+                var(--cream-bg) 50px
+            );
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Container */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Floating Audio Control */
+        .music-control {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+            background: var(--talavera-blue);
+            color: var(--gold-light);
+            border: 2px solid var(--gold-accent);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(13, 33, 63, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1) rotate(15deg);
+            background: var(--barro-terracotta);
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(255,253,249,0.9) 0%, rgba(250,246,240,0.4) 100%);
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        .monogram {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            border: 2px solid var(--gold-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--talavera-blue);
+            background: var(--ivory-card);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .monogram::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 1px dashed var(--barro-terracotta);
+            border-radius: 50%;
+        }
+
+        .hero-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.85rem;
+            color: var(--barro-terracotta);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            color: var(--talavera-cobalt);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-names-and {
+            font-size: 3.2rem;
+            color: var(--barro-terracotta);
+            display: block;
+            margin: -10px 0;
+        }
+
+        .wedding-date-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--talavera-blue);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+            margin-top: 15px;
+            border: 1px solid var(--gold-accent);
+            box-shadow: 0 4px 15px rgba(27, 54, 93, 0.2);
+        }
+
+        /* Live Countdown */
+        .countdown-card {
+            background: var(--ivory-card);
+            border: 1px solid var(--gold-accent);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-card::before {
+            content: '🌸';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .countdown-card::after {
+            content: '🌸';
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .countdown-title {
+            font-size: 1.4rem;
+            color: var(--talavera-blue);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .timer-unit {
+            background: rgba(184, 82, 51, 0.06);
+            border-radius: 12px;
+            padding: 15px 5px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .timer-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--barro-terracotta);
+            line-height: 1;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--talavera-blue);
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* Section Styling */
+        .section-card {
+            background: var(--ivory-card);
+            border-radius: 20px;
+            padding: 35px 30px;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            color: var(--talavera-blue);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--barro-terracotta), transparent);
+            margin: 8px auto 0;
+        }
+
+        .section-icon {
+            font-size: 1.8rem;
+            color: var(--barro-terracotta);
+            margin-bottom: 8px;
+        }
+
+        /* Passage Lookup & Pass Generator Section */
+        .pass-search-box {
+            background: linear-gradient(135deg, rgba(27, 54, 93, 0.03), rgba(184, 82, 51, 0.03));
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px dashed var(--gold-accent);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 20px auto 0;
+        }
+
+        .styled-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .styled-input:focus {
+            border-color: var(--barro-terracotta);
+            box-shadow: 0 0 0 3px rgba(184, 82, 51, 0.15);
+        }
+
+        .btn-primary {
+            background: var(--barro-terracotta);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(184, 82, 51, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--barro-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(184, 82, 51, 0.35);
+        }
+
+        .btn-secondary {
+            background: var(--talavera-blue);
+            color: #fff;
+            border: 1px solid var(--gold-accent);
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--talavera-cobalt);
+            transform: translateY(-2px);
+        }
+
+        /* Digital Pass Ticket */
+        .digital-ticket {
+            background: linear-gradient(135deg, #FFFDF9 0%, #FAF0E6 100%);
+            border: 2px solid var(--gold-accent);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            margin-top: 25px;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--gold-accent);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .ticket-body {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .pass-badge {
+            background: var(--talavera-blue);
+            color: var(--gold-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Event Details Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .event-card {
+            background: rgba(250, 246, 240, 0.6);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-50px) scale(1.02);
+            box-shadow: var(--shadow-soft);
+            background: #fff;
+            border-color: var(--barro-terracotta);
+        }
+
+        .event-time {
+            color: var(--barro-terracotta);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+        }
+
+        /* Timeline / Itinerary */
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--gold-accent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 15px 30px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background: var(--barro-terracotta);
+            border: 3px solid var(--ivory-card);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        .timeline-time {
+            font-weight: 700;
+            color: var(--barro-terracotta);
+            font-size: 0.95rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--talavera-cobalt);
+            margin: 2px 0;
+            font-weight: 600;
+        }
+
+        /* Dress Code Section */
+        .dresscode-box {
+            text-align: center;
+            padding: 20px;
+            background: rgba(74, 107, 93, 0.05);
+            border-radius: 16px;
+            border: 1px solid var(--sage-green);
+        }
+
+        .color-palette-chips {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .color-chip {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 2px solid #fff;
+            position: relative;
+        }
+
+        .color-chip::after {
+            content: attr(data-name);
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.68rem;
+            white-space: nowrap;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        /* Gift Registry Cards */
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .gift-card {
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            background: var(--ivory-card);
+        }
+
+        .bank-details {
+            background: rgba(27, 54, 93, 0.04);
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 0.88rem;
+            text-align: left;
+            margin: 15px 0;
+        }
+
+        /* Hotel Suggestions */
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .hotel-card {
+            border-radius: 14px;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            background: #fff;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* RSVP Form */
+        .rsvp-form {
+            display: grid;
+            gap: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--talavera-blue);
+        }
+
+        .styled-select, .styled-textarea {
+            padding: 12px 18px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            background: #fff;
+        }
+
+        .styled-select:focus, .styled-textarea:focus {
+            border-color: var(--barro-terracotta);
+            box-shadow: 0 0 0 3px rgba(184, 82, 51, 0.15);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--talavera-cobalt);
+            color: var(--gold-light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: 1px solid var(--gold-accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Admin Management Drawer Trigger */
+        .admin-toggle {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .admin-panel {
+            display: none;
+            background: #fff;
+            border: 2px solid var(--talavera-blue);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer-banner {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--talavera-blue);
+        }
+
+        .papel-picado {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .flag {
+            width: 35px;
+            height: 45px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+            animation: sway 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes sway {
+            0% { transform: rotate(-4deg); }
+            100% { transform: rotate(4deg); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.8rem; }
+            .hero-names-and { font-size: 2.3rem; }
+            .timer-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; text-align: left !important; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-dot { left: 12px !important; }
+            .ticket-body { grid-template-columns: 1fr; text-align: center; }
+            .input-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Talavera Folk Pattern Top Accent -->
+    <div class="talavera-banner"></div>
+
+    <!-- Background Ambient Audio -->
+    <audio id="weddingMusic" loop>
+        <!-- Royalty Free Gentle Spanish Guitar Ambient Stream -->
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=spanish-guitar-113231.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" id="musicBtn" onclick="toggleAudio()" title="Activar/Desactivar Música">
+        <i class="fa-solid fa-music" id="musicIcon"></i>
+    </div>
+
+    <div class="main-container">
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="monogram">S & A</div>
+            <div class="hero-subtitle">¡Nos casamos!</div>
+            <h1 class="hero-title">
+                Sofía
+                <span class="script-font hero-names-and">&</span>
+                Alejandro
+            </h1>
+            <p class="serif-font" style="font-size: 1.3rem; font-style: italic; color: #555; margin: 15px 0;">
+                "El amor es el lazo que une nuestros corazones con la tradición y el alma."
+            </p>
+            <div class="wedding-date-badge">
+                <i class="fa-regular fa-calendar-check"></i> SÁBADO, 14 DE NOVIEMBRE DE 2026
+            </div>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--barro-terracotta); font-weight: 600;">
+                <i class="fa-solid fa-location-dot"></i> San Miguel de Allende, Guanajuato
+            </p>
+        </header>
+
+        <!-- Live Countdown -->
+        <div class="countdown-card">
+            <div class="countdown-title">Faltan solo...</div>
+            <div class="timer-grid">
+                <div class="timer-unit">
+                    <div class="timer-number" id="days">00</div>
+                    <div class="timer-label">Días</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-number" id="hours">00</div>
+                    <div class="timer-label">Horas</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-number" id="minutes">00</div>
+                    <div class="timer-label">Minutos</div>
+                </div>
+                <div class="timer-unit">
+                    <div class="timer-number" id="seconds">00</div>
+                    <div class="timer-label">Segundos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Pass Lookup & Digital Pass Generator -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-ticket"></i></div>
+                <h2 class="section-title">Consulta de Pases Digitales</h2>
+            </div>
+            <div class="pass-search-box">
+                <p style="font-size: 0.95rem; color: var(--talavera-blue);">
+                    Ingresa tu nombre o código de familia para obtener tus pases personalizados y acceso directo al evento.
+                </p>
+                <div class="input-group">
+                    <input type="text" id="guestSearchInput" class="styled-input" placeholder="Ej: Familia García o Sofía..." onkeypress="handleSearchKey(event)">
+                    <button class="btn-primary" onclick="searchPasses()">
+                        <i class="fa-solid fa-magnifying-glass"></i> Buscar
+                    </button>
+                </div>
+                <div style="font-size: 0.78rem; color: #888; margin-top: 10px;">
+                    Prueba buscando: <b>García</b>, <b>Mendoza</b> o <b>López</b>
+                </div>
+            </div>
+
+            <!-- Generated Digital Pass Ticket -->
+            <div class="digital-ticket" id="passTicket">
+                <div class="ticket-header">
+                    <div>
+                        <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--barro-terracotta); font-weight: bold;">Pase de Entrada Oficial</span>
+                        <h3 id="ticketGuestName" class="serif-font" style="font-size: 1.8rem; color: var(--talavera-cobalt);">Familia García</h3>
+                    </div>
+                    <div class="pass-badge" id="ticketPassCount">Pases Reservados: 2</div>
+                </div>
+                <div class="ticket-body">
+                    <div>
+                        <p style="font-size: 0.88rem; margin-bottom: 8px;"><i class="fa-solid fa-id-badge" style="color:var(--gold-accent)"></i> Código de Registro: <strong id="ticketCode">S&A-8942</strong></p>
+                        <p style="font-size: 0.88rem; margin-bottom: 8px;"><i class="fa-solid fa-building-columns" style="color:var(--gold-accent)"></i> Mesa Asignada: <strong id="ticketTable">Mesa Talavera #4</strong></p>
+                        <p style="font-size: 0.82rem; color: #666; margin-top: 10px;">
+                            * Muestra este pase o código QR al ingresar a la recepción.
+                        </p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div id="qrcode" style="display: flex; justify-content: center; margin-bottom: 5px;"></div>
+                        <span style="font-size: 0.7rem; color: #777;">Acceso VIP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ubicación y Eventos -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-place-of-worship"></i></div>
+                <h2 class="section-title">Ubicación y Ceremonia</h2>
+            </div>
+            <div class="events-grid">
+                <!-- Misa -->
+                <div class="event-card">
+                    <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--talavera-blue);"></i>
+                    <h3 class="serif-font" style="font-size: 1.5rem; margin-top: 10px;">Ceremonia Religiosa</h3>
+                    <div class="event-time">16:00 HRS</div>
+                    <p style="font-weight: 600; color: var(--charcoal);">Parroquia de San Miguel Arcángel</p>
+                    <p style="font-size: 0.85rem; color: #666;">Principal S/N, Zona Centro, San Miguel de Allende, Gto.</p>
+                    <div class="action-buttons">
+                        <a href="https://maps.google.com/?q=Parroquia+de+San+Miguel+Arcangel" target="_blank" class="btn-primary btn-small">
+                            <i class="fa-solid fa-map-location-dot"></i> Google Maps
+                        </a>
+                        <a href="https://waze.com/ul?q=Parroquia+de+San+Miguel+Arcangel" target="_blank" class="btn-secondary btn-small">
+                            <i class="fa-brands fa-waze"></i> Waze
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recepción -->
+                <div class="event-card">
+                    <i class="fa-solid fa-champagne-glasses" style="font-size: 2rem; color: var(--barro-terracotta);"></i>
+                    <h3 class="serif-font" style="font-size: 1.5rem; margin-top: 10px;">Recepción & Gala</h3>
+                    <div class="event-time">18:00 HRS</div>
+                    <p style="font-weight: 600; color: var(--charcoal);">Hacienda San José Lavista</p>
+                    <p style="font-size: 0.85rem; color: #666;">Carretera San Miguel a Dolores Hidalgo Km 10, Gto.</p>
+                    <div class="action-buttons">
+                        <a href="https://maps.google.com/?q=Hacienda+San+Jose+Lavista" target="_blank" class="btn-primary btn-small">
+                            <i class="fa-solid fa-map-location-dot"></i> Google Maps
+                        </a>
+                        <button onclick="addToCalendar()" class="btn-secondary btn-small">
+                            <i class="fa-solid fa-calendar-plus"></i> Agendar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerario de la Fiesta -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <h2 class="section-title">Itinerario de Celebración</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">16:00 HRS</div>
+                    <div class="timeline-title">Ceremonia Religiosa</div>
+                    <p style="font-size: 0.82rem; color: #666;">Bendición de nuestra unión.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">17:30 HRS</div>
+                    <div class="timeline-title">Cóctel con Mariachi</div>
+                    <p style="font-size: 0.82rem; color: #666;">Tequila de bienvenida y bocadillos típicos.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">19:30 HRS</div>
+                    <div class="timeline-title">Banquete de Gala</div>
+                    <p style="font-size: 0.82rem; color: #666;">Cena de 4 tiempos y brindis de honor.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">21:30 HRS</div>
+                    <div class="timeline-title">Vals & Apertura de Pista</div>
+                    <p style="font-size: 0.82rem; color: #666;">¡A bailar toda la noche!</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">01:00 HRS</div>
+                    <div class="timeline-title">Torneo de Tacos & Trasnochadores</div>
+                    <p style="font-size: 0.82rem; color: #666;">Barra de tacos al pastor y mariachi de medianoche.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress Code / Código de Vestimenta -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <h2 class="section-title">Código de Vestimenta</h2>
+            </div>
+            <div class="dresscode-box">
+                <h3 class="serif-font" style="font-size: 1.8rem; color: var(--barro-terracotta);">Formal Hacienda / Rigurosa Etiqueta</h3>
+                <p style="font-size: 0.95rem; margin-top: 10px; color: var(--charcoal);">
+                    <strong>Damas:</strong> Vestido largo de noche o gala. Colores cálidos o neutros elegantes.<br>
+                    <strong>Caballeros:</strong> Traje oscuro o Guayabera de lino formal de manga larga.
+                </p>
+                <div style="font-size: 0.82rem; color: #666; margin-top: 15px;">
+                    <i class="fa-solid fa-sun"></i> Evento en jardín y salón. Se recomienda tacón ancho o cuña para mayor comodidad.
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <span style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--talavera-blue);">Paleta de Colores Sugerida:</span>
+                    <div class="color-palette-chips">
+                        <div class="color-chip" style="background: #1B365D;" data-name="Azul Cobalto"></div>
+                        <div class="color-chip" style="background: #B85233;" data-name="Terracota"></div>
+                        <div class="color-chip" style="background: #C5A059;" data-name="Oro Viejo"></div>
+                        <div class="color-chip" style="background: #4A6B5D;" data-name="Verde Agave"></div>
+                        <div class="color-chip" style="background: #8A2B43;" data-name="Bugambilia"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mesa de Regalos / Datos Bancarios -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-gift"></i></div>
+                <h2 class="section-title">Mesa de Regalos</h2>
+            </div>
+            <p style="text-align: center; font-size: 0.95rem; margin-bottom: 25px; color: #555;">
+                Su presencia es nuestro mayor regalo. Si desean hacernos un detalle adicional, ponemos a su disposición las siguientes opciones:
+            </p>
+            <div class="gift-grid">
+                <!-- Mesa 1 -->
+                <div class="gift-card">
+                    <i class="fa-solid fa-bag-shopping" style="font-size: 2rem; color: var(--barro-terracotta);"></i>
+                    <h3 class="serif-font" style="font-size: 1.4rem; margin-top: 10px;">El Palacio de Hierro</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin: 8px 0;">Evento N°: <strong>389201</strong></p>
+                    <a href="https://www.elpalaciodehierro.com" target="_blank" class="btn-secondary btn-small">Ver Mesa</a>
+                </div>
+
+                <!-- Lluvia de sobres -->
+                <div class="gift-card">
+                    <i class="fa-solid fa-envelope-open-text" style="font-size: 2rem; color: var(--talavera-blue);"></i>
+                    <h3 class="serif-font" style="font-size: 1.4rem; margin-top: 10px;">Lluvia de Sobres / CLABE</h3>
+                    <div class="bank-details">
+                        <strong>Banco:</strong> BBVA México<br>
+                        <strong>CLABE:</strong> 0121 8001 5489 2018 92<br>
+                        <strong>Titular:</strong> Sofía & Alejandro
+                    </div>
+                    <button class="btn-primary btn-small" onclick="copyCLABE('012180015489201892')">
+                        <i class="fa-regular fa-copy"></i> Copiar CLABE
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hospedaje y Recomendaciones -->
+        <section class="section-card">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-hotel"></i></div>
+                <h2 class="section-title">Sugerencias de Hospedaje</h2>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-bottom: 20px;">
+                Mencionen el código especial <strong>BODA-SOFIA-ALE</strong> para tarifa preferencial.
+            </p>
+            <div class="hotel-grid">
+                <div class="hotel-card">
+                    <h4 class="serif-font" style="font-size: 1.3rem; color: var(--talavera-cobalt);">Hotel Real de Minas</h4>
+                    <p style="font-size: 0.82rem; color: #555; margin: 6px 0;"><i class="fa-solid fa-star" style="color:var(--gold-accent)"></i> 5 Estrellas · Centro Histórico</p>
+                    <p style="font-size: 0.8rem; color: #777;">Tel: (415) 152 2626</p>
+                </div>
+                <div class="hotel-card">
+                    <h4 class="serif-font" style="font-size: 1.3rem; color: var(--talavera-cobalt);">Hacienda El Santuario</h4>
+                    <p style="font-size: 0.82rem; color: #555; margin: 6px 0;"><i class="fa-solid fa-star" style="color:var(--gold-accent)"></i> Hotel Boutique Exclusivo</p>
+                    <p style="font-size: 0.8rem; color: #777;">Tel: (415) 152 0343</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario RSVP Confirmación directa a WhatsApp -->
+        <section class="section-card" id="rsvpSection">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-envelope-circle-check"></i></div>
+                <h2 class="section-title">Confirmar Asistencia (RSVP)</h2>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-bottom: 25px;">
+                Por favor confirma tu asistencia antes del <strong>15 de Octubre de 2026</strong>.
+            </p>
+
+            <form class="rsvp-form" onsubmit="sendRSVPWhatsApp(event)">
+                <div class="form-group">
+                    <label for="rsvpName">Nombre Completo del Invitado / Titular:</label>
+                    <input type="text" id="rsvpName" class="styled-input" required placeholder="Ej. Carlos García Mendoza">
+                </div>
+
+                <div class="form-group">
+                    <label for="rsvpAttending">¿Asistirás a la boda?</label>
+                    <select id="rsvpAttending" class="styled-select" required onchange="togglePassCountInput()">
+                        <option value="Si">¡Sí, ahí estaré con mucho gusto!</option>
+                        <option value="No">Lamentablemente no podré asistir</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="passCountGroup">
+                    <label for="rsvpPasses">Número de Pases a Confirmar:</label>
+                    <select id="rsvpPasses" class="styled-select">
+                        <option value="1 Pase">1 Pase</option>
+                        <option value="2 Pases" selected>2 Pases</option>
+                        <option value="3 Pases">3 Pases</option>
+                        <option value="4 Pases">4 Pases</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="rsvpDiet">Preferencia o Restricciones Alimentarias (Opcional):</label>
+                    <input type="text" id="rsvpDiet" class="styled-input" placeholder="Ej. Vegetariano, alergia a mariscos, etc.">
+                </div>
+
+                <div class="form-group">
+                    <label for="rsvpSong">Sugiérenos una canción para la fiesta:</label>
+                    <input type="text" id="rsvpSong" class="styled-input" placeholder="Ej. La Culebra - Banda Machos">
+                </div>
+
+                <button type="submit" class="btn-primary" style="justify-content: center; font-size: 1.05rem; padding: 15px;">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Confirmar por WhatsApp
+                </button>
+            </form>
+        </section>
+
+        <!-- Panel de Gestión de Invitados (Administrador Novios) -->
+        <div class="admin-toggle">
+            <button class="btn-secondary btn-small" onclick="toggleAdminPanel()">
+                <i class="fa-solid fa-user-gear"></i> Modulo de Gestión de Novios
+            </button>
+        </div>
+
+        <div class="admin-panel" id="adminPanel">
+            <h3 class="serif-font" style="font-size: 1.5rem; color: var(--talavera-blue); text-align: center; margin-bottom: 15px;">
+                <i class="fa-solid fa-chart-pie"></i> Resumen de Confirmaciones
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; text-align: center; margin-bottom: 20px;">
+                <div style="background: rgba(27,54,93,0.05); padding: 15px; border-radius: 12px;">
+                    <div style="font-size: 1.8rem; font-weight: bold; color: var(--talavera-blue);" id="statConfirmed">128</div>
+                    <div style="font-size: 0.8rem; color: #555;">Confirmados</div>
+                </div>
+                <div style="background: rgba(184,82,51,0.05); padding: 15px; border-radius: 12px;">
+                    <div style="font-size: 1.8rem; font-weight: bold; color: var(--barro-terracotta);" id="statTotalPasses">150</div>
+                    <div style="font-size: 0.8rem; color: #555;">Pases Totales</div>
+                </div>
+                <div style="background: rgba(74,107,93,0.05); padding: 15px; border-radius: 12px;">
+                    <div style="font-size: 1.8rem; font-weight: bold; color: var(--sage-green);" id="statPending">22</div>
+                    <div style="font-size: 0.8rem; color: #555;">Pendientes</div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button class="btn-primary btn-small" onclick="exportRSVPData()">
+                    <i class="fa-solid fa-file-excel"></i> Descargar Reporte RSVP (.csv)
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer Decorativo -->
+        <footer class="footer-banner">
+            <div class="papel-picado">
+                <div class="flag" style="background: var(--talavera-blue);"></div>
+                <div class="flag" style="background: var(--barro-terracotta);"></div>
+                <div class="flag" style="background: var(--gold-accent);"></div>
+                <div class="flag" style="background: var(--sage-green);"></div>
+                <div class="flag" style="background: var(--barro-dark);"></div>
+            </div>
+            <div class="script-font" style="font-size: 2.8rem; color: var(--talavera-cobalt);">
+                ¡Los esperamos con mucho amor!
+            </div>
+            <p class="serif-font" style="font-size: 1.2rem; margin-top: 5px; color: var(--barro-terracotta);">
+                Sofía & Alejandro
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Toast Component -->
+    <div class="toast" id="toastMessage">
+        <i class="fa-solid fa-circle-check" style="color: var(--gold-accent); font-size: 1.2rem;"></i>
+        <span id="toastText">Texto de notificación</span>
+    </div>
+
+    <script>
+        // Database simulation of guests passes
+        const GUEST_DATABASE = [
+            { name: "Familia García", passes: 2, code: "S&A-8942", table: "Mesa Talavera #4" },
+            { name: "Familia Mendoza López", passes: 4, code: "S&A-3102", table: "Mesa Agave #2" },
+            { name: "Carlos López", passes: 1, code: "S&A-1109", table: "Mesa Cantina #8" },
+            { name: "Sofía Martínez", passes: 2, code: "S&A-7741", table: "Mesa Bugambilia #1" }
+        ];
+
+        // Countdown Logic
+        const weddingDate = new Date("November 14, 2026 16:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 *
