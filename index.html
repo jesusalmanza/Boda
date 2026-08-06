@@ -684,9 +684,9 @@
 <body>
 
     <!-- REPRODUCTOR DE MÚSICA DE FONDO -->
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop autoplay>
         <!-- Reemplaza el src con la URL de tu canción favorita en MP3 -->
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-acoustic-114887.mp3" type="audio/mpeg">
+        <source src="Ludovico Einaudi - Una Mattina.MP3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
@@ -757,20 +757,32 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" alt="Foto de Novios 1">
-                    <div class="gallery-caption">Nuestro compromiso</div>
+                    <img src="foto1.JPEG" alt="Foto de Novios 1">
+                    <div class="gallery-caption">✈️🌮</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Foto de Novios 2">
-                    <div class="gallery-caption">Días inolvidables</div>
+                    <img src="foto2.JPEG" alt="Foto de Novios 2">
+                    <div class="gallery-caption">🍚🍣🏯</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="Foto de Novios 3">
-                    <div class="gallery-caption">Hacia nuestro gran día</div>
+                    <img src="foto3.JPEG" alt="Foto de Novios 3">
+                    <div class="gallery-caption">✈️⛰️</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=600&q=80" alt="Foto de Novios 4">
-                    <div class="gallery-caption">Por siempre juntos</div>
+                    <img src="foto4.JPEG" alt="Foto de Novios 4">
+                    <div class="gallery-caption">🌴🌞</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="foto5.JPEG" alt="Foto de Novios 5">
+                    <div class="gallery-caption">✈️⛰️</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="foto6.JPEG" alt="Foto de Novios 6">
+                    <div class="gallery-caption">❤️</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="foto7.JPEG" alt="Foto de Novios 7">
+                    <div class="gallery-caption">🚂🛤️</div>
                 </div>
             </div>
         </div>
@@ -838,7 +850,7 @@
     <!-- CONFIRMACIÓN RSVP Y GESTIÓN CON GOOGLE SHEETS -->
     <section class="rsvp-section" id="rsvp">
         <div class="section-header">
-            <span class="section-subtitle">Por favor confirma antes del 1 de Octubre</span>
+            <span class="section-subtitle">Nos ayudaría mucho tener su confirmación. Gracias.</span>
             <h2 class="section-title">Confirmación de Asistencia</h2>
         </div>
 
@@ -1222,6 +1234,36 @@
             link.href = canvas.toDataURL('image/png');
             link.click();
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const music = document.getElementById('bg-music');
+            const musicBtnIcon = document.getElementById('music-btn-icon');
+            const musicStatus = document.getElementById('music-text');    
+
+            // Función para reproducir el audio y actualizar la UI
+            function playAudio() {
+                music.play().then(() => {
+                    if (musicBtnIcon) musicBtnIcon.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                    if (musicStatus) musicStatus.textContent = 'Pausar';
+                }).catch(error => {
+                    console.log("Autoplay bloqueado por el navegador:", error);
+                });
+            }    
+
+            // Intenta reproducir al cargar
+            playAudio();    
+
+            // Si el navegador lo bloqueó, se reproducirá al primer clic/toque en la página
+            function enableAudioOnInteraction() {
+                playAudio();
+                document.removeEventListener('click', enableAudioOnInteraction);
+                document.removeEventListener('touchstart', enableAudioOnInteraction);
+            }    
+
+            document.addEventListener('click', enableAudioOnInteraction);
+            document.addEventListener('touchstart', enableAudioOnInteraction);
+        });
     </script>
 </body>
 </html>
